@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { ArrowRight, Calculator, CheckCircle, TrendingUp, Shield } from 'lucide-react';
+import { Typewriter } from 'react-simple-typewriter';
 
 const Hero: React.FC = () => {
   const floatingIcons = [
@@ -50,6 +51,21 @@ const Hero: React.FC = () => {
                 with FundRoot
               </span>
             </motion.h1>
+
+            {/* Typing Effect */}
+            <div className="mt-4 mb-2">
+              <span className="bg-gradient-to-r from-primary-600 to-success-600 bg-clip-text text-transparent font-bold text-4xl md:text-5xl">
+                <Typewriter
+                  words={['Personal Loan', 'Home Loan', 'Business Loan', 'Car Loan']}
+                  loop={0}
+                  cursor
+                  cursorStyle="|"
+                  typeSpeed={70}
+                  deleteSpeed={50}
+                  delaySpeed={1200}
+                />
+              </span>
+            </div>
 
             <motion.p
               className="text-xl md:text-2xl text-gray-600 dark:text-gray-300 mt-6 leading-relaxed"
@@ -118,15 +134,17 @@ const Hero: React.FC = () => {
             transition={{ duration: 0.8, delay: 0.2 }}
             className="relative"
           >
-            <div className="bg-white/20 dark:bg-gray-800/20 backdrop-blur-lg border border-white/30 dark:border-gray-700/30 rounded-3xl p-8 shadow-2xl">
+            <div className="bg-white/80 dark:bg-gray-800/80 backdrop-blur-lg border border-white/50 dark:border-gray-700/50 rounded-3xl p-8 shadow-xl">
               <motion.div
                 className="text-center"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 1, duration: 0.6 }}
               >
-                <h3 className="text-2xl font-bold text-gray-800 dark:text-white mb-6">
-                  Quick Loan Application
+                <h3 className="text-2xl font-bold mb-6">
+                  <span className="bg-gradient-to-r from-primary-600 to-success-600 bg-clip-text text-transparent">
+                    Quick Loan Application
+                  </span>
                 </h3>
                 
                 <div className="space-y-4">
@@ -140,6 +158,19 @@ const Hero: React.FC = () => {
                       className="w-full bg-white/60 dark:bg-gray-800/60 border border-white/50 dark:border-gray-600/50 rounded-lg px-4 py-3 text-gray-800 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-primary-500"
                     />
                   </div>
+                  {/* Mobile Number Field */}
+                  <div className="bg-white/40 dark:bg-gray-700/40 backdrop-blur-sm rounded-xl p-4 text-left">
+                    <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+                      Mobile Number
+                    </label>
+                    <input
+                      type="tel"
+                      placeholder="Enter your mobile number"
+                      maxLength={10}
+                      pattern="[0-9]{10}"
+                      className="w-full bg-white/60 dark:bg-gray-800/60 border border-white/50 dark:border-gray-600/50 rounded-lg px-4 py-3 text-gray-800 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-primary-500"
+                    />
+                  </div>
                   
                   <div className="bg-white/40 dark:bg-gray-700/40 backdrop-blur-sm rounded-xl p-4 text-left">
                     <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
@@ -150,6 +181,7 @@ const Hero: React.FC = () => {
                       <option>Personal Needs</option>
                       <option>Home Purchase</option>
                       <option>Car Purchase</option>
+                      <option>Others</option>
                     </select>
                   </div>
                   

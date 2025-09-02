@@ -10,7 +10,8 @@ import {
   Instagram, 
   Linkedin,
   Youtube,
-  ArrowRight
+  ArrowRight,
+  Gift
 } from 'lucide-react';
 
 const Footer: React.FC = () => {
@@ -61,6 +62,21 @@ const Footer: React.FC = () => {
 
   return (
     <footer className="bg-gradient-to-b from-gray-900 to-black text-white">
+      {/* Refer and Earn Section - Trending Design */}
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 -mt-16 mb-10 relative z-10">
+        <div className="bg-gradient-to-r from-primary-600 via-success-500 to-purple-600 rounded-3xl shadow-2xl p-8 flex flex-col md:flex-row items-center justify-between gap-6 border-4 border-white dark:border-gray-900">
+          <div className="flex items-center gap-4">
+            <div className="bg-white/20 p-4 rounded-full flex items-center justify-center">
+              <Gift className="h-10 w-10 text-white drop-shadow-lg animate-bounce" />
+            </div>
+            <div>
+              <h2 className="text-2xl md:text-3xl font-extrabold text-white mb-1 tracking-tight drop-shadow">Refer & Earn</h2>
+              <p className="text-lg text-white/90 font-medium drop-shadow-sm">Invite friends and earn exciting rewards on every successful loan disbursal!</p>
+            </div>
+          </div>
+          <a href="#" className="mt-6 md:mt-0 bg-white text-primary-700 font-bold px-8 py-4 rounded-2xl shadow-lg text-lg hover:bg-primary-50 transition-all duration-300 animate-pulse-glow">Start Referring</a>
+        </div>
+      </div>
       {/* Main Footer Content */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
         <div className="grid lg:grid-cols-5 gap-8">
