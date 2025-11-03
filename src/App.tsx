@@ -21,6 +21,18 @@ import HomeLoanPage from './components/HomeLoanPage';
 import BusinessLoanPage from './components/BusinessLoanPage';
 import CarLoanPage from './components/CarLoanPage';
 import PersonalLoanEMICalculator from './components/PersonalLoanEMICalculator';
+import HomeLoanEMICalculator from './components/HomeLoanEMICalculator';
+import CarLoanEMICalculator from './components/CarLoanEMICalculator';
+import BusinessLoanEMICalculator from './components/BusinessLoanEMICalculator';
+import ForeclosureCalculator from './components/ForeclosureCalculator';
+import OurTeamPage from './components/OurTeamPage';
+import PartnerBanksPage from './components/PartnerBanksPage';
+import CareersPage from './components/CareersPage';
+import TestimonialsPage from './components/TestimonialsPage';
+import HowItWorksPage from './components/HowItWorksPage';
+import CheckEligibilityPage from './components/CheckEligibilityPage';
+import DocumentsRequiredPage from './components/DocumentsRequiredPage';
+import ApplyNowPage from './components/ApplyNowPage';
 
 function App() {
   return (
@@ -48,8 +60,20 @@ function App() {
               <Route path="/car-loan" element={<CarLoanPage />} />
               <Route path="/blog" element={<BlogList />} />
               <Route path="/about" element={<AboutPage />} />
+              <Route path="/our-team" element={<OurTeamPage />} />
+              <Route path="/partner-banks" element={<PartnerBanksPage />} />
+              <Route path="/careers" element={<CareersPage />} />
+              <Route path="/testimonials" element={<TestimonialsPage />} />
+              <Route path="/how-it-works" element={<HowItWorksPage />} />
+              <Route path="/check-eligibility" element={<CheckEligibilityPage />} />
+              <Route path="/documents-required" element={<DocumentsRequiredPage />} />
               <Route path="/contact" element={<ContactPage />} />
               <Route path="/personal-loan-emi" element={<PersonalLoanEMICalculator />} />
+              <Route path="/home-loan-emi" element={<HomeLoanEMICalculator />} />
+              <Route path="/car-loan-emi" element={<CarLoanEMICalculator />} />
+              <Route path="/business-loan-emi" element={<BusinessLoanEMICalculator />} />
+              <Route path="/foreclosure-calculator" element={<ForeclosureCalculator />} />
+              <Route path="/apply" element={<ApplyNowPage />} />
             </Routes>
           </main>
           <Footer />

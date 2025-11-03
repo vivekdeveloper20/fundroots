@@ -63,7 +63,7 @@ const Footer: React.FC = () => {
   return (
     <footer className="bg-gradient-to-b from-gray-900 to-black text-white">
       {/* Refer and Earn Section - Trending Design */}
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 -mt-16 mb-10 relative z-10">
+      <div className="max-w-4xl mx-auto -mt-16 mb-10 relative z-10">
         <div className="bg-gradient-to-r from-primary-600 via-success-500 to-purple-600 rounded-3xl shadow-2xl p-8 flex flex-col md:flex-row items-center justify-between gap-6 border-4 border-white dark:border-gray-900">
           <div className="flex items-center gap-4">
             <div className="bg-white/20 p-4 rounded-full flex items-center justify-center">
@@ -78,8 +78,8 @@ const Footer: React.FC = () => {
         </div>
       </div>
       {/* Main Footer Content */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-        <div className="grid lg:grid-cols-5 gap-8">
+      <div className="max-w-7xl mx-auto py-16">
+        <div className="grid lg:grid-cols-6 gap-8">
           {/* Brand Section */}
           <div className="lg:col-span-2">
             <motion.div 
@@ -198,7 +198,7 @@ const Footer: React.FC = () => {
 
       {/* Bottom Bar */}
       <div className="border-t border-gray-800 bg-black/50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+        <div className="max-w-7xl mx-auto py-6">
           <div className="flex flex-col lg:flex-row justify-between items-center gap-4">
             <div className="flex flex-col lg:flex-row items-center gap-4 text-sm text-gray-400">
               <p>&copy; 2024 FundRoot. All rights reserved.</p>

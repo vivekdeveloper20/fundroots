@@ -2,12 +2,13 @@ import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Menu, X, Sun, Moon, TreePine, Calculator, Home, Car, Briefcase, FileText } from 'lucide-react';
 import { useTheme } from './ThemeProvider';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 const Header: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const { theme, toggleTheme } = useTheme();
+  const navigate = useNavigate();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -37,24 +38,24 @@ const Header: React.FC = () => {
 
   const emiTools = [
     { name: 'Personal Loan EMI Calculator', href: '/personal-loan-emi', icon: '💰' },
-    { name: 'Home Loan EMI Calculator', href: '#home-loan-emi', icon: '🏠' },
-    { name: 'Car Loan EMI Calculator', href: '#car-loan-emi', icon: '🚗' },
-    { name: 'Business Loan EMI Calculator', href: '#business-loan-emi', icon: '💼' },
-    { name: 'Foreclosure Calculator', href: '#foreclosure', icon: '🧾' },
+    { name: 'Home Loan EMI Calculator', href: '/home-loan-emi', icon: '🏠' },
+    { name: 'Car Loan EMI Calculator', href: '/car-loan-emi', icon: '🚗' },
+    { name: 'Business Loan EMI Calculator', href: '/business-loan-emi', icon: '💼' },
+    { name: 'Foreclosure Calculator', href: '/foreclosure-calculator', icon: '🧾' },
   ];
 
   const guideMenu = [
-    { name: 'How It Works', href: '#process', icon: '🧭' },
-    { name: 'Check Eligibility', href: '#eligibility', icon: '✅' },
-    { name: 'Documents Required', href: '#documents', icon: '📄' },
+    { name: 'How It Works', href: '/how-it-works', icon: '🧭' },
+    { name: 'Check Eligibility', href: '/check-eligibility', icon: '✅' },
+    { name: 'Documents Required', href: '/documents-required', icon: '📄' },
   ];
 
   const aboutMenu = [
     { name: 'About Us / Company', href: '/about', icon: '🏢' },
-    { name: 'Our Team', href: '#team', icon: '👥' },
-    { name: 'Partner Banks & Lenders', href: '#partners', icon: '🤝' },
-    { name: 'Careers / Join Us', href: '#careers', icon: '💼' },
-    { name: 'Testimonials', href: '#testimonials', icon: '📢' },
+    { name: 'Our Team', href: '/our-team', icon: '👥' },
+    { name: 'Partner Banks & Lenders', href: '/partner-banks', icon: '🤝' },
+    { name: 'Careers / Join Us', href: '/careers', icon: '💼' },
+    { name: 'Testimonials', href: '/testimonials', icon: '📢' },
   ];
 
   const [loanDropdownOpen, setLoanDropdownOpen] = useState(false);
@@ -274,6 +275,7 @@ const Header: React.FC = () => {
               className="bg-gradient-to-r from-primary-500 to-primary-600 text-white px-6 py-3 rounded-xl font-semibold hover:from-primary-600 hover:to-primary-700 transition-all duration-300 animate-pulse-glow"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
+              onClick={() => navigate('/apply')}
             >
               Apply Now
             </motion.button>
@@ -348,14 +350,25 @@ const Header: React.FC = () => {
                     {emiDropdownOpen && (
                       <div className="pl-4 mt-1 space-y-1">
                         {emiTools.map((tool) => (
-                          <a
-                            key={tool.name}
-                            href={tool.href}
-                            className="flex items-center text-gray-700 dark:text-gray-200 hover:text-primary-600 dark:hover:text-primary-400 py-1 gradient-underline"
-                            onClick={() => setIsMenuOpen(false)}
-                          >
-                            <span className="mr-2 text-lg">{tool.icon}</span> {tool.name}
-                          </a>
+                          tool.href.startsWith('/') ? (
+                            <Link
+                              key={tool.name}
+                              to={tool.href}
+                              className="flex items-center text-gray-700 dark:text-gray-200 hover:text-primary-600 dark:hover:text-primary-400 py-1 gradient-underline"
+                              onClick={() => setIsMenuOpen(false)}
+                            >
+                              <span className="mr-2 text-lg">{tool.icon}</span> {tool.name}
+                            </Link>
+                          ) : (
+                            <a
+                              key={tool.name}
+                              href={tool.href}
+                              className="flex items-center text-gray-700 dark:text-gray-200 hover:text-primary-600 dark:hover:text-primary-400 py-1 gradient-underline"
+                              onClick={() => setIsMenuOpen(false)}
+                            >
+                              <span className="mr-2 text-lg">{tool.icon}</span> {tool.name}
+                            </a>
+                          )
                         ))}
                       </div>
                     )}
@@ -451,6 +464,7 @@ const Header: React.FC = () => {
             <motion.button
               className="w-full bg-gradient-to-r from-primary-500 to-primary-600 text-white px-6 py-3 rounded-xl font-semibold hover:from-primary-600 hover:to-primary-700 transition-all duration-300"
               whileTap={{ scale: 0.95 }}
+              onClick={() => setIsMenuOpen(false) || navigate('/apply')}
             >
               Apply Now
             </motion.button>
