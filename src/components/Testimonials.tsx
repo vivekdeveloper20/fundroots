@@ -85,7 +85,7 @@ const Testimonials: React.FC = () => {
   };
 
   return (
-    <section className="py-20 bg-gradient-to-b from-gray-50 to-white dark:from-gray-900 dark:to-gray-800">
+    <section className="py-12 sm:py-16 lg:py-20 bg-gradient-to-b from-gray-50 to-white dark:from-gray-900 dark:to-gray-800">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <motion.div
@@ -93,21 +93,21 @@ const Testimonials: React.FC = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
-          className="text-center mb-16"
+          className="text-center mb-10 sm:mb-12 lg:mb-16"
         >
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-800 dark:text-white mb-6">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-800 dark:text-white mb-4 sm:mb-6">
             What Our
             <span className="bg-gradient-to-r from-primary-600 to-success-600 bg-clip-text text-transparent"> Clients Say</span>
           </h2>
-          <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
+          <p className="text-base sm:text-lg md:text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto px-4 sm:px-0">
             Don't just take our word for it. Here's what our satisfied customers 
             have to say about their FundRoot experience.
           </p>
         </motion.div>
 
         {/* Main Testimonial Carousel */}
-        <div className="relative max-w-5xl mx-auto mb-16">
-          <div className="bg-white/80 dark:bg-gray-800/80 backdrop-blur-lg border border-white/50 dark:border-gray-700/50 rounded-3xl p-8 lg:p-12 shadow-2xl">
+        <div className="relative max-w-5xl mx-auto mb-10 sm:mb-12 lg:mb-16">
+          <div className="bg-white/80 dark:bg-gray-800/80 backdrop-blur-lg border border-white/50 dark:border-gray-700/50 rounded-2xl sm:rounded-3xl p-5 sm:p-6 lg:p-12 shadow-2xl">
             <AnimatePresence mode="wait">
               <motion.div
                 key={currentIndex}
@@ -123,42 +123,42 @@ const Testimonials: React.FC = () => {
                 </div>
 
                 {/* Testimonial Text */}
-                <blockquote className="text-xl md:text-2xl text-gray-700 dark:text-gray-300 leading-relaxed mb-8 italic">
+                <blockquote className="text-base sm:text-lg md:text-xl lg:text-2xl text-gray-700 dark:text-gray-300 leading-relaxed mb-6 sm:mb-8 italic px-2 sm:px-0">
                   "{testimonials[currentIndex].text}"
                 </blockquote>
 
                 {/* Rating */}
-                <div className="flex justify-center gap-1 mb-6">
+                <div className="flex justify-center gap-1 mb-4 sm:mb-6">
                   {renderStars(testimonials[currentIndex].rating)}
                 </div>
 
                 {/* Customer Info */}
-                <div className="flex flex-col md:flex-row items-center justify-center gap-6">
-                  <div className="flex items-center gap-4">
+                <div className="flex flex-col md:flex-row items-center justify-center gap-4 sm:gap-6">
+                  <div className="flex items-center gap-3 sm:gap-4">
                     <img
                       src={testimonials[currentIndex].image}
                       alt={testimonials[currentIndex].name}
-                      className="w-16 h-16 rounded-full object-cover border-4 border-gradient-to-r from-primary-500 to-success-500"
+                      className="w-12 h-12 sm:w-14 sm:h-14 lg:w-16 lg:h-16 rounded-full object-cover border-2 sm:border-4 border-gradient-to-r from-primary-500 to-success-500"
                     />
                     <div className="text-left">
-                      <h4 className="text-xl font-bold text-gray-800 dark:text-white">
+                      <h4 className="text-lg sm:text-xl font-bold text-gray-800 dark:text-white">
                         {testimonials[currentIndex].name}
                       </h4>
-                      <div className="flex items-center gap-1 text-gray-500 dark:text-gray-400">
-                        <MapPin className="h-4 w-4" />
+                      <div className="flex items-center gap-1 text-sm sm:text-base text-gray-500 dark:text-gray-400">
+                        <MapPin className="h-3 w-3 sm:h-4 sm:w-4" />
                         <span>{testimonials[currentIndex].city}</span>
                       </div>
                     </div>
                   </div>
 
-                  <div className="flex flex-col md:flex-row gap-4">
-                    <div className="bg-primary-100 dark:bg-primary-900/30 px-4 py-2 rounded-full">
-                      <span className="text-primary-600 dark:text-primary-400 font-semibold">
+                  <div className="flex flex-col sm:flex-row gap-2 sm:gap-4">
+                    <div className="bg-primary-100 dark:bg-primary-900/30 px-3 sm:px-4 py-1.5 sm:py-2 rounded-full">
+                      <span className="text-xs sm:text-sm text-primary-600 dark:text-primary-400 font-semibold">
                         {testimonials[currentIndex].loanType}
                       </span>
                     </div>
-                    <div className="bg-success-100 dark:bg-success-900/30 px-4 py-2 rounded-full">
-                      <span className="text-success-600 dark:text-success-400 font-semibold">
+                    <div className="bg-success-100 dark:bg-success-900/30 px-3 sm:px-4 py-1.5 sm:py-2 rounded-full">
+                      <span className="text-xs sm:text-sm text-success-600 dark:text-success-400 font-semibold">
                         {testimonials[currentIndex].amount}
                       </span>
                     </div>

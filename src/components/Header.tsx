@@ -74,14 +74,14 @@ const Header: React.FC = () => {
           : 'bg-transparent'
       }`}
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-16 lg:h-20">
+      <div className="max-w-7xl mx-auto px-3 sm:px-4 lg:px-8">
+        <div className="flex justify-between items-center h-14 sm:h-16 lg:h-20">
           {/* Logo */}
-          <Link to="/" className="flex items-center space-x-2">
-            <div className="bg-gradient-to-r from-primary-500 to-success-500 p-2 rounded-lg">
-              <TreePine className="h-6 w-6 text-white" />
+          <Link to="/" className="flex items-center space-x-1 sm:space-x-2">
+            <div className="bg-gradient-to-r from-primary-500 to-success-500 p-1.5 sm:p-2 rounded-lg">
+              <TreePine className="h-5 w-5 sm:h-6 sm:w-6 text-white" />
             </div>
-            <span className="text-xl lg:text-2xl font-bold bg-gradient-to-r from-primary-600 to-success-600 bg-clip-text text-transparent">
+            <span className="text-lg sm:text-xl lg:text-2xl font-bold bg-gradient-to-r from-primary-600 to-success-600 bg-clip-text text-transparent">
               FundRoot
             </span>
           </Link>
@@ -282,20 +282,20 @@ const Header: React.FC = () => {
           </div>
 
           {/* Mobile Menu Button */}
-          <div className="flex lg:hidden items-center space-x-2">
+          <div className="flex lg:hidden items-center space-x-1 sm:space-x-2">
             <motion.button
               onClick={toggleTheme}
-              className="p-2 rounded-lg bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-400"
+              className="p-1.5 sm:p-2 rounded-lg bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-400"
               whileTap={{ scale: 0.95 }}
             >
-              {theme === 'light' ? <Moon className="h-5 w-5" /> : <Sun className="h-5 w-5" />}
+              {theme === 'light' ? <Moon className="h-4 w-4 sm:h-5 sm:w-5" /> : <Sun className="h-4 w-4 sm:h-5 sm:w-5" />}
             </motion.button>
             <motion.button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className="p-2 rounded-lg bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-400"
+              className="p-1.5 sm:p-2 rounded-lg bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-400"
               whileTap={{ scale: 0.95 }}
             >
-              {isMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+              {isMenuOpen ? <X className="h-5 w-5 sm:h-6 sm:w-6" /> : <Menu className="h-5 w-5 sm:h-6 sm:w-6" />}
             </motion.button>
           </div>
         </div>
@@ -307,9 +307,9 @@ const Header: React.FC = () => {
             opacity: isMenuOpen ? 1 : 0,
             height: isMenuOpen ? 'auto' : 0,
           }}
-          className="lg:hidden overflow-hidden bg-white/95 dark:bg-gray-900/95 backdrop-blur-lg rounded-b-2xl"
+          className="lg:hidden overflow-hidden bg-white/95 dark:bg-gray-900/95 backdrop-blur-lg rounded-b-xl sm:rounded-b-2xl max-h-[calc(100vh-4rem)] overflow-y-auto"
         >
-          <div className="px-4 py-6 space-y-4">
+          <div className="px-3 sm:px-4 py-4 sm:py-6 space-y-3 sm:space-y-4">
             {navItems.map((item) => {
               if (item.name === 'Loan Types') {
                 return (
@@ -462,9 +462,12 @@ const Header: React.FC = () => {
               );
             })}
             <motion.button
-              className="w-full bg-gradient-to-r from-primary-500 to-primary-600 text-white px-6 py-3 rounded-xl font-semibold hover:from-primary-600 hover:to-primary-700 transition-all duration-300"
+              className="w-full bg-gradient-to-r from-primary-500 to-primary-600 text-white px-6 py-3 rounded-xl font-semibold text-sm sm:text-base hover:from-primary-600 hover:to-primary-700 transition-all duration-300"
               whileTap={{ scale: 0.95 }}
-              onClick={() => setIsMenuOpen(false) || navigate('/apply')}
+              onClick={() => {
+                setIsMenuOpen(false);
+                navigate('/apply');
+              }}
             >
               Apply Now
             </motion.button>

@@ -82,7 +82,7 @@ const LoanCategories: React.FC = () => {
   };
 
   return (
-    <section id="loans" className="py-20 bg-gradient-to-b from-gray-50 to-white dark:from-gray-900 dark:to-gray-800">
+    <section id="loans" className="py-12 sm:py-16 lg:py-20 bg-gradient-to-b from-gray-50 to-white dark:from-gray-900 dark:to-gray-800">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <motion.div
@@ -90,13 +90,13 @@ const LoanCategories: React.FC = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
-          className="text-center mb-16"
+          className="text-center mb-10 sm:mb-12 lg:mb-16"
         >
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-800 dark:text-white mb-6">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-800 dark:text-white mb-4 sm:mb-6">
             Choose Your
             <span className="bg-gradient-to-r from-primary-600 to-success-600 bg-clip-text text-transparent"> Loan Type</span>
           </h2>
-          <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
+          <p className="text-base sm:text-lg md:text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto px-4 sm:px-0">
             Tailored financial solutions for every need. From business growth to personal dreams, 
             we've got you covered with competitive rates and fast approvals.
           </p>
@@ -108,7 +108,7 @@ const LoanCategories: React.FC = () => {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}
-          className="grid md:grid-cols-2 lg:grid-cols-3 gap-8"
+          className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8"
         >
           {loanTypes.map((loan, index) => (
             <motion.div
@@ -121,17 +121,17 @@ const LoanCategories: React.FC = () => {
               <div className={`absolute inset-0 bg-gradient-to-br ${loan.bgGradient} rounded-3xl transform rotate-1 group-hover:rotate-2 transition-transform duration-300`} />
               
               {/* Main Card */}
-              <div className="relative bg-white/80 dark:bg-gray-800/80 backdrop-blur-lg border border-white/50 dark:border-gray-700/50 rounded-3xl p-8 h-full shadow-xl group-hover:shadow-2xl transition-all duration-300">
+              <div className="relative bg-white/80 dark:bg-gray-800/80 backdrop-blur-lg border border-white/50 dark:border-gray-700/50 rounded-2xl sm:rounded-3xl p-5 sm:p-6 lg:p-8 h-full shadow-xl group-hover:shadow-2xl transition-all duration-300">
                 {/* Icon */}
-                <div className={`inline-flex p-4 rounded-2xl bg-gradient-to-r ${loan.gradient} mb-6 group-hover:scale-110 transition-transform duration-300`}>
-                  <loan.icon className="h-8 w-8 text-white" />
+                <div className={`inline-flex p-3 sm:p-4 rounded-xl sm:rounded-2xl bg-gradient-to-r ${loan.gradient} mb-4 sm:mb-6 group-hover:scale-110 transition-transform duration-300`}>
+                  <loan.icon className="h-6 w-6 sm:h-7 sm:w-7 lg:h-8 lg:w-8 text-white" />
                 </div>
 
                 {/* Content */}
-                <h3 className="text-2xl font-bold text-gray-800 dark:text-white mb-4">
+                <h3 className="text-xl sm:text-2xl font-bold text-gray-800 dark:text-white mb-3 sm:mb-4">
                   {loan.title}
                 </h3>
-                <p className="text-gray-600 dark:text-gray-300 mb-6 leading-relaxed">
+                <p className="text-sm sm:text-base text-gray-600 dark:text-gray-300 mb-4 sm:mb-6 leading-relaxed">
                   {loan.description}
                 </p>
 

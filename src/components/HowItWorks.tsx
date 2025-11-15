@@ -85,7 +85,7 @@ const HowItWorks: React.FC = () => {
   };
 
   return (
-    <section id="process" className="py-20 bg-gradient-to-b from-white to-gray-50 dark:from-gray-800 dark:to-gray-900">
+    <section id="process" className="py-12 sm:py-16 lg:py-20 bg-gradient-to-b from-white to-gray-50 dark:from-gray-800 dark:to-gray-900">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <motion.div
@@ -93,13 +93,13 @@ const HowItWorks: React.FC = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
-          className="text-center mb-16"
+          className="text-center mb-10 sm:mb-12 lg:mb-16"
         >
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-800 dark:text-white mb-6">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-800 dark:text-white mb-4 sm:mb-6">
             How It
             <span className="bg-gradient-to-r from-primary-600 to-success-600 bg-clip-text text-transparent"> Works</span>
           </h2>
-          <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
+          <p className="text-base sm:text-lg md:text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto px-4 sm:px-0">
             Get your loan in 4 simple steps. Our streamlined process ensures you get 
             the funds you need quickly and hassle-free.
           </p>
@@ -116,7 +116,7 @@ const HowItWorks: React.FC = () => {
           {/* Connection Line */}
           <div className="hidden lg:block absolute top-1/2 left-0 right-0 h-1 bg-gradient-to-r from-blue-200 via-purple-200 via-green-200 to-orange-200 dark:from-blue-800 dark:via-purple-800 dark:via-green-800 dark:to-orange-800 transform -translate-y-1/2 z-0" />
 
-          <div className="grid lg:grid-cols-4 gap-8 relative z-10">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 lg:gap-8 relative z-10">
             {steps.map((step, index) => (
               <motion.div
                 key={index}
@@ -125,30 +125,30 @@ const HowItWorks: React.FC = () => {
                 className="group relative"
               >
                 {/* Background Gradient */}
-                <div className={`absolute inset-0 bg-gradient-to-br ${step.bgGradient} rounded-3xl transform rotate-1 group-hover:rotate-2 transition-transform duration-300`} />
+                <div className={`absolute inset-0 bg-gradient-to-br ${step.bgGradient} rounded-2xl sm:rounded-3xl transform rotate-1 group-hover:rotate-2 transition-transform duration-300`} />
                 
                 {/* Main Card */}
-                <div className="relative bg-white/90 dark:bg-gray-800/90 backdrop-blur-lg border border-white/50 dark:border-gray-700/50 rounded-3xl p-8 h-full shadow-xl group-hover:shadow-2xl transition-all duration-300">
+                <div className="relative bg-white/90 dark:bg-gray-800/90 backdrop-blur-lg border border-white/50 dark:border-gray-700/50 rounded-2xl sm:rounded-3xl p-5 sm:p-6 lg:p-8 h-full shadow-xl group-hover:shadow-2xl transition-all duration-300">
                   {/* Step Number */}
-                  <div className="absolute -top-4 -left-4 w-12 h-12 bg-gradient-to-r from-primary-500 to-success-500 rounded-full flex items-center justify-center text-white font-bold text-lg shadow-lg">
+                  <div className="absolute -top-3 -left-3 sm:-top-4 sm:-left-4 w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-r from-primary-500 to-success-500 rounded-full flex items-center justify-center text-white font-bold text-base sm:text-lg shadow-lg">
                     {index + 1}
                   </div>
 
                   {/* Time Badge */}
-                  <div className="absolute -top-2 -right-2 bg-gradient-to-r from-orange-500 to-red-500 text-white px-3 py-1 rounded-full text-sm font-semibold">
+                  <div className="absolute -top-2 -right-2 bg-gradient-to-r from-orange-500 to-red-500 text-white px-2 sm:px-3 py-1 rounded-full text-xs sm:text-sm font-semibold">
                     {step.time}
                   </div>
 
                   {/* Icon */}
-                  <div className={`inline-flex p-4 rounded-2xl bg-gradient-to-r ${step.gradient} mb-6 group-hover:scale-110 transition-transform duration-300`}>
-                    <step.icon className="h-8 w-8 text-white" />
+                  <div className={`inline-flex p-3 sm:p-4 rounded-xl sm:rounded-2xl bg-gradient-to-r ${step.gradient} mb-4 sm:mb-6 group-hover:scale-110 transition-transform duration-300`}>
+                    <step.icon className="h-6 w-6 sm:h-7 sm:w-7 lg:h-8 lg:w-8 text-white" />
                   </div>
 
                   {/* Content */}
-                  <h3 className="text-2xl font-bold text-gray-800 dark:text-white mb-4">
+                  <h3 className="text-xl sm:text-2xl font-bold text-gray-800 dark:text-white mb-3 sm:mb-4">
                     {step.title}
                   </h3>
-                  <p className="text-gray-600 dark:text-gray-300 mb-6 leading-relaxed">
+                  <p className="text-sm sm:text-base text-gray-600 dark:text-gray-300 mb-4 sm:mb-6 leading-relaxed">
                     {step.description}
                   </p>
 

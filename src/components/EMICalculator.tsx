@@ -40,7 +40,7 @@ const EMICalculator: React.FC = () => {
   const interestPercentage = ((totalInterest / totalAmount) * 100).toFixed(1);
 
   return (
-    <section id="calculator" className="py-20 bg-gradient-to-b from-white to-gray-50 dark:from-gray-800 dark:to-gray-900">
+    <section id="calculator" className="py-12 sm:py-16 lg:py-20 bg-gradient-to-b from-white to-gray-50 dark:from-gray-800 dark:to-gray-900">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <motion.div
@@ -48,20 +48,20 @@ const EMICalculator: React.FC = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
-          className="text-center mb-16"
+          className="text-center mb-10 sm:mb-12 lg:mb-16"
         >
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-800 dark:text-white mb-6">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-800 dark:text-white mb-4 sm:mb-6">
             <span className="bg-gradient-to-r from-primary-600 to-success-600 bg-clip-text text-transparent">
               EMI Calculator
             </span>
           </h2>
-          <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
+          <p className="text-base sm:text-lg md:text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto px-4 sm:px-0">
             Plan your loan with our interactive EMI calculator. Get instant calculations 
             and make informed financial decisions.
           </p>
         </motion.div>
 
-        <div className="grid lg:grid-cols-2 gap-12 items-start">
+        <div className="grid lg:grid-cols-2 gap-6 sm:gap-8 lg:gap-12 items-start">
           {/* Calculator Controls */}
           <motion.div
             initial={{ opacity: 0, x: -50 }}
@@ -69,24 +69,24 @@ const EMICalculator: React.FC = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
           >
-            <div className="bg-white/80 dark:bg-gray-800/80 backdrop-blur-lg border border-white/50 dark:border-gray-700/50 rounded-3xl p-8 shadow-xl">
-              <div className="flex items-center gap-3 mb-8">
-                <div className="bg-gradient-to-r from-primary-500 to-success-500 p-3 rounded-xl">
-                  <Calculator className="h-6 w-6 text-white" />
+            <div className="bg-white/80 dark:bg-gray-800/80 backdrop-blur-lg border border-white/50 dark:border-gray-700/50 rounded-2xl sm:rounded-3xl p-5 sm:p-6 lg:p-8 shadow-xl">
+              <div className="flex items-center gap-2 sm:gap-3 mb-6 sm:mb-8">
+                <div className="bg-gradient-to-r from-primary-500 to-success-500 p-2 sm:p-3 rounded-lg sm:rounded-xl">
+                  <Calculator className="h-5 w-5 sm:h-6 sm:w-6 text-white" />
                 </div>
-                <h3 className="text-2xl font-bold text-gray-800 dark:text-white">
+                <h3 className="text-xl sm:text-2xl font-bold text-gray-800 dark:text-white">
                   Calculate Your EMI
                 </h3>
               </div>
 
-              <div className="space-y-8">
+              <div className="space-y-6 sm:space-y-8">
                 {/* Loan Amount */}
                 <div>
-                  <div className="flex justify-between items-center mb-4">
-                    <label className="text-lg font-semibold text-gray-700 dark:text-gray-300">
+                  <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center mb-3 sm:mb-4 gap-2">
+                    <label className="text-base sm:text-lg font-semibold text-gray-700 dark:text-gray-300">
                       Loan Amount
                     </label>
-                    <span className="text-xl font-bold text-primary-600 dark:text-primary-400">
+                    <span className="text-lg sm:text-xl font-bold text-primary-600 dark:text-primary-400">
                       {formatCurrency(amount)}
                     </span>
                   </div>
@@ -167,42 +167,43 @@ const EMICalculator: React.FC = () => {
             className="space-y-8"
           >
             {/* EMI Result Card */}
-            <div className="bg-gradient-to-br from-primary-500 to-primary-600 rounded-3xl p-8 text-white shadow-xl">
+            <div className="bg-gradient-to-br from-primary-500 to-primary-600 rounded-2xl sm:rounded-3xl p-5 sm:p-6 lg:p-8 text-white shadow-xl">
               <div className="text-center">
-                <h3 className="text-lg font-semibold mb-2 opacity-90">Monthly EMI</h3>
-                <div className="text-4xl md:text-5xl font-bold mb-4">
+                <h3 className="text-base sm:text-lg font-semibold mb-2 opacity-90">Monthly EMI</h3>
+                <div className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 sm:mb-6">
                   {formatCurrency(emi)}
                 </div>
                 <motion.button
-                  className="bg-white/20 backdrop-blur-sm border border-white/30 text-white px-6 py-3 rounded-xl font-semibold hover:bg-white/30 transition-all duration-300 flex items-center gap-2 mx-auto"
+                  className="bg-white/20 backdrop-blur-sm border border-white/30 text-white px-4 sm:px-6 py-2 sm:py-3 rounded-lg sm:rounded-xl font-semibold text-sm sm:text-base hover:bg-white/30 transition-all duration-300 flex items-center gap-2 mx-auto"
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
                 >
-                  <Download className="h-5 w-5" />
-                  Download Report
+                  <Download className="h-4 w-4 sm:h-5 sm:w-5" />
+                  <span className="hidden sm:inline">Download Report</span>
+                  <span className="sm:hidden">Download</span>
                 </motion.button>
               </div>
             </div>
 
             {/* Breakdown Cards */}
-            <div className="grid grid-cols-2 gap-4">
-              <div className="bg-white/80 dark:bg-gray-800/80 backdrop-blur-lg border border-white/50 dark:border-gray-700/50 rounded-2xl p-6 shadow-lg">
+            <div className="grid grid-cols-2 gap-3 sm:gap-4">
+              <div className="bg-white/80 dark:bg-gray-800/80 backdrop-blur-lg border border-white/50 dark:border-gray-700/50 rounded-xl sm:rounded-2xl p-4 sm:p-6 shadow-lg">
                 <div className="text-center">
-                  <div className="text-sm font-medium text-gray-600 dark:text-gray-400 mb-2">
+                  <div className="text-xs sm:text-sm font-medium text-gray-600 dark:text-gray-400 mb-2">
                     Total Interest
                   </div>
-                  <div className="text-2xl font-bold text-orange-600 dark:text-orange-400">
+                  <div className="text-lg sm:text-xl md:text-2xl font-bold text-orange-600 dark:text-orange-400">
                     {formatCurrency(totalInterest)}
                   </div>
                 </div>
               </div>
               
-              <div className="bg-white/80 dark:bg-gray-800/80 backdrop-blur-lg border border-white/50 dark:border-gray-700/50 rounded-2xl p-6 shadow-lg">
+              <div className="bg-white/80 dark:bg-gray-800/80 backdrop-blur-lg border border-white/50 dark:border-gray-700/50 rounded-xl sm:rounded-2xl p-4 sm:p-6 shadow-lg">
                 <div className="text-center">
-                  <div className="text-sm font-medium text-gray-600 dark:text-gray-400 mb-2">
+                  <div className="text-xs sm:text-sm font-medium text-gray-600 dark:text-gray-400 mb-2">
                     Total Amount
                   </div>
-                  <div className="text-2xl font-bold text-success-600 dark:text-success-400">
+                  <div className="text-lg sm:text-xl md:text-2xl font-bold text-success-600 dark:text-success-400">
                     {formatCurrency(totalAmount)}
                   </div>
                 </div>
