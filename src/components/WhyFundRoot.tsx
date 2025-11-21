@@ -10,8 +10,11 @@ import {
   Star,
   Award
 } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
 
 const WhyFundRoot: React.FC = () => {
+  const navigate = useNavigate();
+
   const features = [
     {
       icon: Zap,
@@ -209,6 +212,7 @@ const WhyFundRoot: React.FC = () => {
               className="bg-gradient-to-r from-primary-500 to-primary-600 text-white px-8 py-4 rounded-xl font-semibold text-lg hover:from-primary-600 hover:to-primary-700 transition-all duration-300 animate-pulse-glow"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
+              onClick={() => navigate('/apply')}
             >
               Apply for Loan
             </motion.button>
@@ -216,6 +220,7 @@ const WhyFundRoot: React.FC = () => {
               className="bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm border-2 border-primary-200 dark:border-primary-800 text-primary-600 dark:text-primary-400 px-8 py-4 rounded-xl font-semibold text-lg hover:bg-primary-50 dark:hover:bg-primary-900/20 transition-all duration-300"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
+              onClick={() => navigate('/contact')}
             >
               Talk to Expert
             </motion.button>

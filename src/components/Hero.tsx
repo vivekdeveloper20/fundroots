@@ -2,8 +2,21 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { ArrowRight, Calculator, CheckCircle, TrendingUp, Shield } from 'lucide-react';
 import { Typewriter } from 'react-simple-typewriter';
+import { useNavigate } from 'react-router-dom';
 
 const Hero: React.FC = () => {
+  const navigate = useNavigate();
+
+  const handleCalculateEmiClick = () => {
+    const calculatorSection = document.getElementById('calculator');
+    if (calculatorSection) {
+      calculatorSection.scrollIntoView({ behavior: 'smooth' });
+      return;
+    }
+
+    navigate('/personal-loan-emi');
+  };
+
   const floatingIcons = [
     { Icon: TrendingUp, delay: 0, position: 'top-20 left-10' },
     { Icon: Shield, delay: 0.5, position: 'top-32 right-16' },
@@ -88,6 +101,7 @@ const Hero: React.FC = () => {
                 className="bg-gradient-to-r from-primary-500 to-primary-600 text-white px-6 sm:px-8 py-3 sm:py-4 rounded-xl sm:rounded-2xl font-semibold text-base sm:text-lg flex items-center justify-center gap-2 hover:from-primary-600 hover:to-primary-700 transition-all duration-300 animate-pulse-glow w-full sm:w-auto"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
+                onClick={() => navigate('/check-eligibility')}
               >
                 Check Eligibility
                 <ArrowRight className="h-4 w-4 sm:h-5 sm:w-5" />
@@ -97,6 +111,7 @@ const Hero: React.FC = () => {
                 className="bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm border-2 border-primary-200 dark:border-primary-800 text-primary-600 dark:text-primary-400 px-6 sm:px-8 py-3 sm:py-4 rounded-xl sm:rounded-2xl font-semibold text-base sm:text-lg flex items-center justify-center gap-2 hover:bg-primary-50 dark:hover:bg-primary-900/20 transition-all duration-300 w-full sm:w-auto"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
+                onClick={handleCalculateEmiClick}
               >
                 <Calculator className="h-4 w-4 sm:h-5 sm:w-5" />
                 Calculate EMI

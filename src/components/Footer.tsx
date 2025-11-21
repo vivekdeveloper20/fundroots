@@ -13,52 +13,92 @@ import {
   ArrowRight,
   Gift
 } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
+
+type FooterLink = {
+  label: string;
+  to: string;
+  external?: boolean;
+};
 
 const Footer: React.FC = () => {
-  const footerLinks = {
+  const navigate = useNavigate();
+
+  const footerLinks: Record<string, FooterLink[]> = {
     'Loan Products': [
-      'Business Loans',
-      'Personal Loans',
-      'Home Loans',
-      'Car Loans',
-      'MSME Loans',
+      { label: 'Business Loans', to: '/business-loan' },
+      { label: 'Personal Loans', to: '/personal-loan' },
+      { label: 'Home Loans', to: '/home-loan' },
+      { label: 'Car Loans', to: '/car-loan' },
+      { label: 'MSME Loans', to: '/business-loan' },
     ],
     'Quick Links': [
-      'EMI Calculator',
-      'Interest Rates',
-      'Eligibility Checker',
-      'Application Status',
-      'Customer Support',
+      { label: 'EMI Calculator', to: '/personal-loan-emi' },
+      { label: 'Interest Rates', to: '/blog' },
+      { label: 'Eligibility Checker', to: '/check-eligibility' },
+      { label: 'Application Status', to: '/apply' },
+      { label: 'Customer Support', to: '/contact' },
     ],
     'Resources': [
-      'Loan Guide',
-      'Financial Tips',
-      'Credit Score',
-      'Tax Benefits',
-      'Blog',
+      { label: 'Loan Guide', to: '/how-it-works' },
+      { label: 'Financial Tips', to: '/blog' },
+      { label: 'Credit Score', to: '/check-eligibility' },
+      { label: 'Tax Benefits', to: '/blog' },
+      { label: 'Blog', to: '/blog' },
     ],
     'Company': [
-      'About Us',
-      'Our Partners',
-      'Careers',
-      'Press Release',
-      'Contact Us',
+      { label: 'About Us', to: '/about' },
+      { label: 'Our Partners', to: '/partner-banks' },
+      { label: 'Careers', to: '/careers' },
+      { label: 'Press Release', to: '/blog' },
+      { label: 'Contact Us', to: '/contact' },
     ],
   };
 
   const socialLinks = [
-    { icon: Facebook, href: '#', name: 'Facebook' },
-    { icon: Twitter, href: '#', name: 'Twitter' },
-    { icon: Instagram, href: '#', name: 'Instagram' },
-    { icon: Linkedin, href: '#', name: 'LinkedIn' },
-    { icon: Youtube, href: '#', name: 'YouTube' },
+    { icon: Facebook, href: 'https://facebook.com/fundroot', name: 'Facebook' },
+    { icon: Twitter, href: 'https://twitter.com/fundroot', name: 'Twitter' },
+    { icon: Instagram, href: 'https://instagram.com/fundroot', name: 'Instagram' },
+    { icon: Linkedin, href: 'https://linkedin.com/company/fundroot', name: 'LinkedIn' },
+    { icon: Youtube, href: 'https://youtube.com/@fundroot', name: 'YouTube' },
   ];
 
   const contactInfo = [
-    { icon: Phone, text: '+91 98765 43210' },
-    { icon: Mail, text: 'support@fundroot.in' },
-    { icon: MapPin, text: 'Mumbai, Maharashtra' },
+    { icon: Phone, text: '+91 98765 43210', href: 'tel:+919876543210' },
+    { icon: Mail, text: 'support@fundroot.in', href: 'mailto:support@fundroot.in' },
+    { icon: MapPin, text: 'Mumbai, Maharashtra', href: 'https://maps.google.com/?q=Mumbai+Maharashtra', external: true },
   ];
+
+  const legalLinks: FooterLink[] = [
+    { label: 'Privacy Policy', to: '/contact' },
+    { label: 'Terms of Service', to: '/contact' },
+    { label: 'Cookie Policy', to: '/contact' },
+  ];
+
+  const handleNavigation = (target: string, external?: boolean) => {
+    if (!target) return;
+
+    if (target.startsWith('mailto:') || target.startsWith('tel:')) {
+      window.location.href = target;
+      return;
+    }
+
+    if (external || target.startsWith('http')) {
+      window.open(target, '_blank', 'noopener,noreferrer');
+      return;
+    }
+
+    if (target.startsWith('#')) {
+      const element = document.querySelector(target);
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+        return;
+      }
+    }
+
+    navigate(target);
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
 
   return (
     <footer className="bg-gradient-to-b from-gray-900 to-black text-white">
@@ -74,7 +114,15 @@ const Footer: React.FC = () => {
               <p className="text-sm sm:text-base md:text-lg text-white/90 font-medium drop-shadow-sm">Invite friends and earn exciting rewards on every successful loan disbursal!</p>
             </div>
           </div>
-          <a href="#" className="w-full md:w-auto mt-4 md:mt-0 bg-white text-primary-700 font-bold px-6 sm:px-8 py-3 sm:py-4 rounded-xl sm:rounded-2xl shadow-lg text-base sm:text-lg hover:bg-primary-50 transition-all duration-300 animate-pulse-glow text-center">Start Referring</a>
+          <motion.button
+            type="button"
+            className="w-full md:w-auto mt-4 md:mt-0 bg-white text-primary-700 font-bold px-6 sm:px-8 py-3 sm:py-4 rounded-xl sm:rounded-2xl shadow-lg text-base sm:text-lg hover:bg-primary-50 transition-all duration-300 animate-pulse-glow text-center"
+            whileHover={{ scale: 1.03 }}
+            whileTap={{ scale: 0.97 }}
+            onClick={() => handleNavigation('/apply')}
+          >
+            Start Referring
+          </motion.button>
         </div>
       </div>
       {/* Main Footer Content */}
@@ -101,12 +149,21 @@ const Footer: React.FC = () => {
 
             {/* Contact Info */}
             <div className="space-y-3 mb-6">
-              {contactInfo.map((contact, index) => (
-                <div key={index} className="flex items-center gap-3">
-                  <contact.icon className="h-5 w-5 text-primary-400" />
-                  <span className="text-gray-300">{contact.text}</span>
-                </div>
-              ))}
+              {contactInfo.map((contact, index) => {
+                const Icon = contact.icon;
+                return (
+                  <a
+                    key={index}
+                    href={contact.href}
+                    target={contact.external ? '_blank' : undefined}
+                    rel={contact.external ? 'noopener noreferrer' : undefined}
+                    className="flex items-center gap-3 text-gray-300 hover:text-primary-300 transition-colors duration-200"
+                  >
+                    <Icon className="h-5 w-5 text-primary-400" />
+                    <span>{contact.text}</span>
+                  </a>
+                );
+              })}
             </div>
 
             {/* Newsletter Signup */}
@@ -135,15 +192,16 @@ const Footer: React.FC = () => {
             <div key={title}>
               <h3 className="text-xl font-semibold mb-6 text-white">{title}</h3>
               <ul className="space-y-3">
-                {links.map((link) => (
-                  <li key={link}>
-                    <motion.a
-                      href="#"
-                      className="text-gray-300 hover:text-primary-400 transition-colors duration-300 hover:translate-x-1 inline-block"
+                {links.map(({ label, to, external }) => (
+                  <li key={label}>
+                    <motion.button
+                      type="button"
+                      className="text-gray-300 hover:text-primary-400 transition-colors duration-300 inline-flex bg-transparent focus:outline-none"
                       whileHover={{ x: 4 }}
+                      onClick={() => handleNavigation(to, external)}
                     >
-                      {link}
-                    </motion.a>
+                      {label}
+                    </motion.button>
                   </li>
                 ))}
               </ul>
@@ -203,9 +261,17 @@ const Footer: React.FC = () => {
             <div className="flex flex-col lg:flex-row items-center gap-4 text-sm text-gray-400">
               <p>&copy; 2024 FundRoot. All rights reserved.</p>
               <div className="flex gap-4">
-                <a href="#" className="hover:text-primary-400 transition-colors">Privacy Policy</a>
-                <a href="#" className="hover:text-primary-400 transition-colors">Terms of Service</a>
-                <a href="#" className="hover:text-primary-400 transition-colors">Cookie Policy</a>
+                {legalLinks.map(({ label, to, external }) => (
+                  <motion.button
+                    key={label}
+                    type="button"
+                    className="hover:text-primary-400 transition-colors bg-transparent focus:outline-none text-left"
+                    whileHover={{ x: 2 }}
+                    onClick={() => handleNavigation(to, external)}
+                  >
+                    {label}
+                  </motion.button>
+                ))}
               </div>
             </div>
             

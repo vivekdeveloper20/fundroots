@@ -33,6 +33,7 @@ import {
   MessageCircle,
   HelpCircle
 } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
 
 const steps = [
   {
@@ -251,6 +252,7 @@ const faqs = [
 ];
 
 const HowItWorksPage: React.FC = () => {
+  const navigate = useNavigate();
   const [selectedLoanType, setSelectedLoanType] = useState(loanTypes[0]);
   const [activeStep, setActiveStep] = useState(1);
   const [openFaq, setOpenFaq] = useState<number | null>(null);
@@ -565,6 +567,7 @@ const HowItWorksPage: React.FC = () => {
                 className="bg-gradient-to-r from-primary-500 to-success-500 text-white font-semibold px-8 py-4 rounded-xl shadow hover:from-primary-600 hover:to-success-600 transition-all duration-200 text-lg flex items-center justify-center gap-2"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
+                onClick={() => navigate('/apply')}
               >
                 <Search className="h-5 w-5" />
                 Apply for Loan
@@ -573,6 +576,7 @@ const HowItWorksPage: React.FC = () => {
                 className="border-2 border-primary-500 text-primary-600 dark:text-primary-400 font-semibold px-8 py-4 rounded-xl hover:bg-primary-50 dark:hover:bg-primary-900/20 transition-all duration-200 text-lg flex items-center justify-center gap-2"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
+                onClick={() => navigate('/check-eligibility')}
               >
                 <Calculator className="h-5 w-5" />
                 Check Eligibility

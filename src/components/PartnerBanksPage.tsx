@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Building2, Shield, Award, Users, TrendingUp, CheckCircle, Star, Globe, Phone, Mail, MapPin } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
 
 const partnerBanks = [
   {
@@ -145,9 +146,12 @@ const benefits = [
   }
 ];
 
-const PartnerBanksPage: React.FC = () => (
-  <section className="py-16 bg-gradient-to-b from-gray-50 to-white dark:from-gray-900 dark:to-gray-800 min-h-screen">
-    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+const PartnerBanksPage: React.FC = () => {
+  const navigate = useNavigate();
+
+  return (
+    <section className="py-16 bg-gradient-to-b from-gray-50 to-white dark:from-gray-900 dark:to-gray-800 min-h-screen">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       {/* Header */}
       <header className="mb-16 text-center relative overflow-visible">
         <div aria-hidden="true" className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[90vw] max-w-3xl h-40 md:h-56 blur-2xl opacity-60 pointer-events-none z-0 animate-pulse-glow"
@@ -398,6 +402,7 @@ const PartnerBanksPage: React.FC = () => (
               className="bg-gradient-to-r from-primary-500 to-success-500 text-white font-semibold px-8 py-4 rounded-xl shadow hover:from-primary-600 hover:to-success-600 transition-all duration-200 text-lg"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
+              onClick={() => navigate('/apply')}
             >
               Apply for Loan
             </motion.button>
@@ -413,6 +418,7 @@ const PartnerBanksPage: React.FC = () => (
       </section>
     </div>
   </section>
-);
+  );
+};
 
 export default PartnerBanksPage;

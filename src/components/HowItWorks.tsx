@@ -10,8 +10,11 @@ import {
   Shield,
   Smartphone
 } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
 
 const HowItWorks: React.FC = () => {
+  const navigate = useNavigate();
+
   const steps = [
     {
       icon: FileText,
@@ -232,6 +235,7 @@ const HowItWorks: React.FC = () => {
             className="bg-gradient-to-r from-primary-500 to-success-500 text-white px-10 py-5 rounded-2xl font-semibold text-xl hover:from-primary-600 hover:to-success-600 transition-all duration-300 animate-pulse-glow"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
+            onClick={() => navigate('/apply')}
           >
             Start Application Now
           </motion.button>

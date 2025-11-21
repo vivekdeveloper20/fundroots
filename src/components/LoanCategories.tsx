@@ -11,8 +11,11 @@ import {
   Clock,
   Shield
 } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
 
 const LoanCategories: React.FC = () => {
+  const navigate = useNavigate();
+
   const loanTypes = [
     {
       icon: Building2,
@@ -23,6 +26,7 @@ const LoanCategories: React.FC = () => {
       tenure: '5 Years',
       gradient: 'from-blue-500 to-indigo-600',
       bgGradient: 'from-blue-50 to-indigo-100 dark:from-blue-900/20 dark:to-indigo-900/20',
+      path: '/business-loan',
     },
     {
       icon: User,
@@ -33,6 +37,7 @@ const LoanCategories: React.FC = () => {
       tenure: '3 Years',
       gradient: 'from-purple-500 to-pink-600',
       bgGradient: 'from-purple-50 to-pink-100 dark:from-purple-900/20 dark:to-pink-900/20',
+      path: '/personal-loan',
     },
     {
       icon: Car,
@@ -43,6 +48,7 @@ const LoanCategories: React.FC = () => {
       tenure: '7 Years',
       gradient: 'from-green-500 to-emerald-600',
       bgGradient: 'from-green-50 to-emerald-100 dark:from-green-900/20 dark:to-emerald-900/20',
+      path: '/car-loan',
     },
     {
       icon: Home,
@@ -53,6 +59,7 @@ const LoanCategories: React.FC = () => {
       tenure: '30 Years',
       gradient: 'from-orange-500 to-red-600',
       bgGradient: 'from-orange-50 to-red-100 dark:from-orange-900/20 dark:to-red-900/20',
+      path: '/home-loan',
     },
     {
       icon: Factory,
@@ -63,6 +70,7 @@ const LoanCategories: React.FC = () => {
       tenure: '10 Years',
       gradient: 'from-teal-500 to-cyan-600',
       bgGradient: 'from-teal-50 to-cyan-100 dark:from-teal-900/20 dark:to-cyan-900/20',
+      path: '/business-loan',
     },
   ];
 
@@ -167,6 +175,7 @@ const LoanCategories: React.FC = () => {
                   className={`w-full bg-gradient-to-r ${loan.gradient} text-white py-4 rounded-xl font-semibold flex items-center justify-center gap-2 group-hover:shadow-lg transition-all duration-300`}
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
+                  onClick={() => navigate(loan.path)}
                 >
                   Apply Now
                   <ArrowRight className="h-5 w-5 group-hover:translate-x-1 transition-transform duration-300" />
@@ -195,6 +204,7 @@ const LoanCategories: React.FC = () => {
               className="bg-gradient-to-r from-primary-500 to-success-500 text-white px-8 py-4 rounded-xl font-semibold hover:from-primary-600 hover:to-success-600 transition-all duration-300"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
+              onClick={() => navigate('/contact')}
             >
               Speak to Expert
             </motion.button>

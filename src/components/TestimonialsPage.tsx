@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Star, Quote, Users, DollarSign, TrendingUp, CheckCircle, MapPin, Calendar, Heart, Award, ThumbsUp } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
 
 const testimonials = [
   {
@@ -131,6 +132,7 @@ const loanTypes = [
 ];
 
 const TestimonialsPage: React.FC = () => {
+  const navigate = useNavigate();
   const [selectedLoanType, setSelectedLoanType] = useState('All');
 
   const filteredTestimonials = selectedLoanType === 'All' 
@@ -386,6 +388,7 @@ const TestimonialsPage: React.FC = () => {
                 className="bg-gradient-to-r from-primary-500 to-success-500 text-white font-semibold px-8 py-4 rounded-xl shadow hover:from-primary-600 hover:to-success-600 transition-all duration-200 text-lg"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
+                onClick={() => navigate('/apply')}
               >
                 Apply for Loan
               </motion.button>
@@ -393,6 +396,7 @@ const TestimonialsPage: React.FC = () => {
                 className="border-2 border-primary-500 text-primary-600 dark:text-primary-400 font-semibold px-8 py-4 rounded-xl hover:bg-primary-50 dark:hover:bg-primary-900/20 transition-all duration-200 text-lg"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
+                onClick={() => navigate('/check-eligibility')}
               >
                 Check Eligibility
               </motion.button>
