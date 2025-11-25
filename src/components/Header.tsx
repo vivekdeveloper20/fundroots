@@ -180,13 +180,23 @@ const Header: React.FC = () => {
                     {guideDropdownOpen && (
                       <div className="absolute left-0 mt-2 w-56 bg-white dark:bg-gray-800 rounded-lg shadow-lg z-50">
                         {guideMenu.map((guide) => (
-                          <a
-                            key={guide.name}
-                            href={guide.href}
-                            className="flex items-center px-4 py-2 text-gray-700 dark:text-gray-200 hover:bg-primary-100 dark:hover:bg-primary-900 hover:text-primary-600 dark:hover:text-primary-400 transition-colors gradient-underline"
-                          >
-                            <span className="mr-2 text-lg">{guide.icon}</span> {guide.name}
-                          </a>
+                          guide.href && guide.href.startsWith('/') ? (
+                            <Link
+                              key={guide.name}
+                              to={guide.href}
+                              className="flex items-center px-4 py-2 text-gray-700 dark:text-gray-200 hover:bg-primary-100 dark:hover:bg-primary-900 hover:text-primary-600 dark:hover:text-primary-400 transition-colors gradient-underline"
+                            >
+                              <span className="mr-2 text-lg">{guide.icon}</span> {guide.name}
+                            </Link>
+                          ) : (
+                            <a
+                              key={guide.name}
+                              href={guide.href}
+                              className="flex items-center px-4 py-2 text-gray-700 dark:text-gray-200 hover:bg-primary-100 dark:hover:bg-primary-900 hover:text-primary-600 dark:hover:text-primary-400 transition-colors gradient-underline"
+                            >
+                              <span className="mr-2 text-lg">{guide.icon}</span> {guide.name}
+                            </a>
+                          )
                         ))}
                       </div>
                     )}
@@ -387,14 +397,25 @@ const Header: React.FC = () => {
                     {guideDropdownOpen && (
                       <div className="pl-4 mt-1 space-y-1">
                         {guideMenu.map((guide) => (
-                          <a
-                            key={guide.name}
-                            href={guide.href}
-                            className="flex items-center text-gray-700 dark:text-gray-200 hover:text-primary-600 dark:hover:text-primary-400 py-1 gradient-underline"
-                            onClick={() => setIsMenuOpen(false)}
-                          >
-                            <span className="mr-2 text-lg">{guide.icon}</span> {guide.name}
-                          </a>
+                          guide.href && guide.href.startsWith('/') ? (
+                            <Link
+                              key={guide.name}
+                              to={guide.href}
+                              className="flex items-center text-gray-700 dark:text-gray-200 hover:text-primary-600 dark:hover:text-primary-400 py-1 gradient-underline"
+                              onClick={() => setIsMenuOpen(false)}
+                            >
+                              <span className="mr-2 text-lg">{guide.icon}</span> {guide.name}
+                            </Link>
+                          ) : (
+                            <a
+                              key={guide.name}
+                              href={guide.href}
+                              className="flex items-center text-gray-700 dark:text-gray-200 hover:text-primary-600 dark:hover:text-primary-400 py-1 gradient-underline"
+                              onClick={() => setIsMenuOpen(false)}
+                            >
+                              <span className="mr-2 text-lg">{guide.icon}</span> {guide.name}
+                            </a>
+                          )
                         ))}
                       </div>
                     )}
