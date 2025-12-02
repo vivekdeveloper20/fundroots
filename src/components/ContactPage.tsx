@@ -117,7 +117,7 @@ const ContactPage: React.FC = () => {
               <Phone className="h-7 w-7 text-primary-500" />
               <div>
                 <div className="text-lg font-semibold text-gray-800 dark:text-white">Call Us</div>
-                <div className="text-gray-600 dark:text-gray-300">+91 98765 43210</div>
+                <div className="text-gray-600 dark:text-gray-300">+91 84344 87300, +91 82946 24055</div>
                 <div className="text-gray-400 text-sm">Mon-Sat, 9 AM - 7 PM</div>
               </div>
             </div>
@@ -133,7 +133,7 @@ const ContactPage: React.FC = () => {
               <MapPin className="h-7 w-7 text-purple-500" />
               <div>
                 <div className="text-lg font-semibold text-gray-800 dark:text-white">Visit Us</div>
-                <div className="text-gray-600 dark:text-gray-300">Bandra Kurla Complex, Mumbai</div>
+                <div className="text-gray-600 dark:text-gray-300">New Delhi, India</div>
                 <div className="text-gray-400 text-sm">Office Hours: 9 AM - 6 PM</div>
               </div>
             </div>
@@ -143,7 +143,7 @@ const ContactPage: React.FC = () => {
               <div className="rounded-2xl overflow-hidden shadow-lg">
                 <iframe
                   title="FundRoot Office Location"
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3769.788393478255!2d72.8649783149036!3d19.0675809870957!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7c630b6b6b6b7%3A0x7b7b7b7b7b7b7b7b!2sBandra%20Kurla%20Complex%2C%20Mumbai%2C%20Maharashtra!5e0!3m2!1sen!2sin!4v1680000000000!5m2!1sen!2sin"
+                  src="https://www.google.com/maps?q=New+Delhi,+India&output=embed"
                   width="100%"
                   height="220"
                   style={{ border: 0 }}

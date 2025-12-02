@@ -64,7 +64,7 @@ const Contact: React.FC = () => {
     {
       icon: Phone,
       title: 'Call Us',
-      details: ['+91 98765 43210', '+91 87654 32109'],
+      details: ['+91 84344 87300', '+91 82946 24055'],
       description: 'Mon-Sat, 9 AM - 7 PM',
       gradient: 'from-green-500 to-emerald-500',
     },
@@ -78,7 +78,7 @@ const Contact: React.FC = () => {
     {
       icon: MapPin,
       title: 'Visit Us',
-      details: ['Bandra Kurla Complex', 'Mumbai, Maharashtra'],
+      details: ['New Delhi', 'India'],
       description: 'Office Hours: 9 AM - 6 PM',
       gradient: 'from-purple-500 to-pink-500',
     },
