@@ -64,9 +64,9 @@ const Footer: React.FC = () => {
   ];
 
   const contactInfo = [
-    { icon: Phone, text: '+91 98765 43210', href: 'tel:+919876543210' },
+    { icon: Phone, text: '+91 84344 87300', href: 'tel:+918434487300' },
     { icon: Mail, text: 'support@fundroot.in', href: 'mailto:support@fundroot.in' },
-    { icon: MapPin, text: 'Mumbai, Maharashtra', href: 'https://maps.google.com/?q=Mumbai+Maharashtra', external: true },
+    { icon: MapPin, text: 'New Delhi, India', href: 'https://maps.google.com/?q=New+Delhi+India', external: true },
   ];
 
   const legalLinks: FooterLink[] = [
